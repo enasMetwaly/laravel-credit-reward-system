@@ -1,0 +1,25 @@
+# version: '3.8'    # Required for Docker Compose < 2.0, can be removed for modern versions
+services:
+  app:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - laravel-storage:/var/www/html/storage
+      - laravel-bootstrap-cache:/var/www/html/bootstrap/cache
+      - .:/var/www/html  # Mount rest excluding storage and cache
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  laravel-storage:
+  laravel-bootstrap-cache:
+  dbdata:
