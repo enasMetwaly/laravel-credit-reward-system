@@ -19,7 +19,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - dbdata:/var/lib/mysql
-volumes:
+    ports:
+      - "3306:3306"  # expose port 3306 allow db clients work with container db
   laravel-storage:
   laravel-bootstrap-cache:
   dbdata:
