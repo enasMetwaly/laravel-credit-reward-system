@@ -1,4 +1,4 @@
-# version: '3.8'    # Required for Docker Compose < 2.0, can be removed for modern versions
+version: '3.8'    # Required for Docker Compose < 2.0, can be removed for modern versions
 services:
   app:
     build: .
@@ -20,7 +20,8 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
     ports:
-      - "3306:3306"  # expose port 3306 allow db clients work with container db
+      - "3306:3306"  # Expose port 3306 to allow db clients to work with container db
+volumes:
   laravel-storage:
   laravel-bootstrap-cache:
   dbdata:
