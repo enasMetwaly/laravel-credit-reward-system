@@ -9,7 +9,8 @@ services:
       - laravel-bootstrap-cache:/var/www/html/bootstrap/cache
       - .:/var/www/html  # Mount rest excluding storage and cache
     depends_on:
-      - db
+      db:
+        condition: service_healthy  # Wait for db to be healthy
   db:
     image: mysql:8.0
     environment:
@@ -21,6 +22,11 @@ services:
       - dbdata:/var/lib/mysql
     ports:
       - "3306:3306"  # Expose port 3306 to allow db clients to work with container db
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 volumes:
   laravel-storage:
   laravel-bootstrap-cache:
