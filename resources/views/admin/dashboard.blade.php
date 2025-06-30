@@ -9,7 +9,6 @@
             <div class="dashboard-header">
                 <h1>Dashboard Overview</h1>
                 <p>Monitor your credit and rewards system performance</p>
-                <a href="#" class="settings-btn">Settings</a>
             </div>
 
             <!-- Metrics Overview -->
@@ -80,7 +79,6 @@
         .main-content { flex: 1; padding: 20px; background: #f9f9f9; margin-left: 250px; }
         .dashboard-header { margin-bottom: 20px; }
         .dashboard-header h1 { color: #2c3e50; }
-        .settings-btn { float: right; color: #3498db; text-decoration: none; }
         .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 20px; }
         .metric-card { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
         .metric-card h3 { color: #7f8c8d; font-size: 1rem; }

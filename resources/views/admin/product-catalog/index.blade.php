@@ -50,15 +50,15 @@
         </main>
     </div>
 
-    <style>
-        .dashboard-wrapper { display: flex; min-height: 100vh; }
-        .main-content { flex: 1; padding: 20px; background: #f9f9f9; margin-left: 250px; }
-        .dashboard-header { margin-bottom: 20px; }
-        .dashboard-header h1 { color: #2c3e50; }
-        .settings-btn { float: right; color: #3498db; text-decoration: none; }
-        .table-section { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .table { width: 100%; }
-        .table th, .table td { text-align: left; padding: 10px; }
-        .table th { background-color: #3498db; color: white; }
-    </style>
+  <style>
+    .dashboard-wrapper { display: flex; min-height: 100vh; }
+    .main-content { flex: 1; padding: 20px; background: #f9f9f9; margin-left: 250px; }
+    .dashboard-header { margin-bottom: 30px; } /* Increased margin-bottom for more space */
+    .dashboard-header h1 { color: #2c3e50; }
+    .settings-btn { float: right; color: rgb(8, 19, 43); text-decoration: none; }
+    .table-section { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .table { width: 100%; }
+    .table th, .table td { text-align: left; padding: 10px; }
+    .table th { background-color: #3498db; color: white; }
+</style>
 @endsection

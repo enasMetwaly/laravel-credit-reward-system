@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\CreditPackage;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+     public function index()
     {
         $creditPackages = CreditPackage::all();
-        return view('home', compact('creditPackages'));
+        $products = Product::where('is_redeemable', true)->get();
+        return view('home', compact('creditPackages', 'products'));
     }
 }

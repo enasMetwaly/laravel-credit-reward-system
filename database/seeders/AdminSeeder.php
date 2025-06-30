@@ -3,17 +3,21 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\Admin;
 
 class AdminSeeder extends Seeder
 {
     public function run()
     {
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('adminpassword123'),
-            'created_at' => now(),
-        ]);
+        // Check if admin already exists
+        if (!Admin::where('email', 'admin@example.com')->exists()) {
+            Admin::create([
+                'name' => 'Admin User',
+                'email' => 'admin@example.com',
+                'password' => bcrypt('111'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

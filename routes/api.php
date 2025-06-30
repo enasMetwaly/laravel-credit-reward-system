@@ -14,13 +14,10 @@ Route::post('/login', [UserAuthController::class, 'login'])->name('login');
 
     // Credit Packages & Purchases
     Route::get('/credit-packages', [PurchaseController::class, 'index'])->middleware('auth:sanctum');
-    Route::get('/purchases', [PurchaseController::class, 'index_purchaces'])->middleware('auth:sanctum');
     Route::post('/purchase', [PurchaseController::class, 'store'])->middleware('auth:sanctum');
 
     // Points Redemption
     Route::get('/redeemable-products', [RedemptionController::class, 'index'])->middleware('auth:sanctum');
-        // Route::get('/redemptions', [RedemptionController::class, 'store'])->middleware('auth:sanctum');
-
     Route::post('/redeem-product', [RedemptionController::class, 'store'])->middleware('auth:sanctum');
 
 });

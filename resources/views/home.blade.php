@@ -38,11 +38,11 @@
         .cta-btn:hover {
             background-color: #2980b9;
         }
-        .packages-section {
+        .packages-section, .products-section {
             padding: 40px 0;
             background-color: #ffffff;
         }
-        .card-package {
+        .card-package, .card-product {
             border: none;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -52,14 +52,14 @@
             text-align: center;
             padding: 20px;
         }
-        .card-package:hover {
+        .card-package:hover, .card-product:hover {
             transform: translateY(-5px);
         }
-        .card-package h4 {
+        .card-package h4, .card-product h4 {
             color: #3498db;
             margin-bottom: 10px;
         }
-        .card-package p {
+        .card-package p, .card-product p {
             color: #7f8c8d;
         }
         .footer {
@@ -73,7 +73,7 @@
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(6, 20, 68);">
         <div class="container">
             <a class="navbar-brand" href="/">Credit Reward System</a>
             <div class="d-flex">
@@ -93,12 +93,9 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="container">
-            <h1>Explore Our Credit Packages</h1>
-            <p>Unlock rewards with flexible credit packages tailored for you.</p>
-            <img src="{{ asset('images/credits.png') }}" alt="Credit Packages">
-            @if (!Auth::guard('admin')->check())
-                <a href="{{ route('admin.auth.login') }}" class="cta-btn mt-3">Get Started</a>
-            @endif
+            <h1>Explore Our Credit Packages & Rewards</h1>
+            <p>Unlock credits, earn points, and redeem exciting products.</p>
+            <img src="{{ asset('images/credits.png') }}" alt="Credit Packages" style="height: 400px;">
         </div>
     </div>
 
@@ -113,12 +110,33 @@
                             <h4>{{ $package->name }}</h4>
                             <h3>{{ number_format($package->price_egp, 2) }} EGP</h3>
                             <p>{{ $package->credits }} Credits | {{ $package->reward_points }} Points</p>
-                            <a href="{{ route('admin.credit-packages.create') }}" class="btn cta-btn mt-3">Purchase</a>
                         </div>
                     </div>
                 @empty
                     <div class="col-12 text-center">
                         <p>No credit packages available.</p>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="products-section">
+        <div class="container">
+            <h2 class="text-center mb-4" style="color: #2c3e50;">Redeemable Products</h2>
+            <div class="row">
+                @forelse ($products as $product)
+                    <div class="col-md-4">
+                        <div class="card card-product">
+                            <h4>{{ $product->name }}</h4>
+                            <p>{{ $product->category }} | {{ $product->points_required }} Points</p>
+                            <p>{{ $product->description }}</p>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12 text-center">
+                        <p>No redeemable products available.</p>
                     </div>
                 @endforelse
             </div>

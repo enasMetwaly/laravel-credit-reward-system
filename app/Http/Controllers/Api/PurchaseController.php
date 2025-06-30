@@ -16,12 +16,6 @@ class PurchaseController extends Controller
         return response()->json(['data' => $creditPackages]);
     }
 
-    public function index_purchaces()
-    {
-        $user = Auth::guard('sanctum')->user();
-        $purchases = $user->purchases()->with('creditPackage')->get();
-        return response()->json(['data' => $purchases]);
-    }
 
     public function store(Request $request)
     {
@@ -62,8 +56,8 @@ class PurchaseController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
-                'total_credits' => $user->credits, // Map database 'credits' to 'total_credits'
-                'total_reward_points' => $user->reward_points, // Map database 'reward_points' to 'total_reward_points'
+                'total_credits' => $user->credits, 
+                'total_reward_points' => $user->reward_points, 
             ],
         ], 201);
     }
