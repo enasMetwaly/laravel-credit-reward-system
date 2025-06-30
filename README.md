@@ -504,7 +504,8 @@ docker exec -it laravel-credit-reward-system-app-1 php artisan migrate --seed
 ---
 
 ## 🎥 Video Walkthrough
-
+vedio.webm
+https://drive.google.com/file/d/1abZu-Hdm7T1ywI1tzDtiSOyxm5IXTgMX/view
 The video will cover:
 - Feature overview
 - Code structure
