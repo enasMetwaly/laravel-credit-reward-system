@@ -68,17 +68,14 @@ source .env.docker && docker-compose down -v && docker-compose up -d --build
 docker exec -it laravel-credit-reward-system-app-1 composer install
 ```
 
-### 5. Publish Sanctum Configuration
-```bash
-docker exec -it laravel-credit-reward-system-app-1 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
-```
 
-### 6. Generate Application Key
+
+### 5. Generate Application Key
 ```bash
 docker exec -it laravel-credit-reward-system-app-1 php artisan key:generate
 ```
 
-### 7. Create `.htaccess` File (if missing)
+### 6. Create `.htaccess` File (if missing)
 ```bash
 cp public/.htaccess.example public/.htaccess
 ```
@@ -290,6 +287,7 @@ Authorization: Bearer <token>
 
 ### 💳 Credit Packages & Purchases
 
+####  base url`http://localhost:8000/`
 #### `GET /api/user/credit-packages`
 **Description:** List available credit packages.
 
