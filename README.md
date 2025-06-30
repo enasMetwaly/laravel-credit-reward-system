@@ -25,7 +25,7 @@ This project is containerized using **Docker** and works across platforms: Linux
 
 ### 1. Clone the Repository
 ```bash
-git clone <repo-url> laravel-credit-reward-system
+git clone https://github.com/enasMetwaly/laravel-credit-reward-system.git  laravel-credit-reward-system
 cd laravel-credit-reward-system
 ```
 
@@ -504,7 +504,8 @@ docker exec -it laravel-credit-reward-system-app-1 php artisan migrate --seed
 ---
 
 ## 🎥 Video Walkthrough
-
+vedio url :
+https://drive.google.com/file/d/1o7CBYs6aF5MM37zbwotwkjiyPfQx_xhF/view
 The video will cover:
 - Feature overview
 - Code structure
