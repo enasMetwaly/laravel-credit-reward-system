@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
     curl \
+    nodejs \
+    npm \
 && docker-php-ext-install \
     pdo_mysql \
     mbstring \
