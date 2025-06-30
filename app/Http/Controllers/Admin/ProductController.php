@@ -73,17 +73,31 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-    public function recommend(Request $request)
+   public function recommend(Request $request)
     {
-        $userPoints = $request->input('points', 0);
+        $user = Auth::guard('sanctum')->user();
+        if (!$user) {
+            return response()->json(['error' => 'Authentication required'], 401);
+        }
+
+        $points = $user->reward_points;
         $products = Product::where('is_redeemable', true)->get();
 
-        $recommendation = $products->filter(function ($product) use ($userPoints) {
-            return $product->points_required <= $userPoints && $product->points_required > 0;
+        $recommendation = $products->filter(function ($product) use ($points) {
+            return $product->points_required <= $points && $product->points_required > 0;
         })->sortByDesc('points_required')->first();
 
         if ($recommendation) {
-            return response()->json(['recommended_product' => $recommendation]);
+            return response()->json([
+                'message' => 'Recommendation found',
+                'recommended_product' => [
+                    'id' => $recommendation->id,
+                    'name' => $recommendation->name,
+                    'category' => $recommendation->category,
+                    'description' => $recommendation->description,
+                    'points_required' => $recommendation->points_required,
+                ],
+            ]);
         }
 
         return response()->json(['message' => 'No suitable recommendation found'], 404);

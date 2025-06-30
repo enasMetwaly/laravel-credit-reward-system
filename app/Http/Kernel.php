@@ -27,7 +27,6 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            'auth:sanctum', // Add Sanctum authentication
         ],
     ];
 
@@ -41,9 +40,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'auth.sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        'check.role' => \App\Http\Middleware\CheckRoleMiddleware::class,
-        // Remove 'auth:api' or map it to Sanctum if needed
-        // 'auth:api' => \Illuminate\Auth\Middleware\Authenticate::class, // Optional, use 'auth:sanctum' instead
+        'auth.sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class, // Correct Sanctum middleware
     ];
 }
